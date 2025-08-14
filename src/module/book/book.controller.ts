@@ -7,6 +7,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { ApiBody, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { BookDTO } from './book.dto';
 import { BookService } from './book.service';
 
@@ -15,6 +16,12 @@ export class BookController {
   constructor(private readonly bookService: BookService) {}
 
   @Post()
+  @ApiOperation({ summary: 'Criar Livros!' })
+  @ApiBody({ type: BookDTO })
+  @ApiResponse({
+    status: 201,
+    description: 'Criar Livros!',
+  })
   async create(@Body() data: BookDTO) {
     return this.bookService.create(data);
   }
