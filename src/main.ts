@@ -11,7 +11,7 @@ async function bootstrap() {
     .setTitle('Api de Livros')
     .setDescription('Documentação da API de livros com NestJs + Swagger')
     .setVersion('1.0')
-    .addTag('book')
+    .addTag('FernasBook')
     .build();
 
   app.enableCors({
