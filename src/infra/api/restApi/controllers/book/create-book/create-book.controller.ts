@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Book } from 'src/domain/entities/book-entity';
-import { CreateBookService } from 'src/usecases/Book/create/create-book/create-book.service';
+import { CreateBookService } from 'src/usecases/book/create/create-book/create-book.service';
 import { BookDTO } from 'src/usecases/dtos/bookInputs';
 
 @ApiTags('Book')
