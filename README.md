@@ -75,3 +75,26 @@ O projeto utiliza **Prisma** com SQLite como banco de dados. A seguir estão os 
 - `price`: preço do item no momento da venda
 - `createdAt`: data de criação
 - Relações com `Book` e `Customer`
+
+<p>Para rodar o projeto, você precisará instalar as dependências abaixo e executar alguns comandos:</p>
+
+### Requisitos
+
+- **Node.js** (v18 ou superior)
+- **NestJS CLI** (global)
+- **Prisma**
+
+### Instalação de dependências
+
+```bash
+# Instalar NestJS CLI globalmente
+npm install -g @nestjs/cli
+
+# Instalar dependências do projeto
+npm install
+
+# Instalar Prisma e gerar cliente
+npm install @prisma/client
+npm install prisma --save-dev
+npx prisma generate
+```
