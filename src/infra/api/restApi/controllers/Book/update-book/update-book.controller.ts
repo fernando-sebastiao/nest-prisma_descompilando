@@ -5,7 +5,7 @@ import { UpdateBookService } from 'src/usecases/Book/update-book/update-book.ser
 import { updateBookDTO } from 'src/usecases/dtos/update-book-input';
 
 @ApiTags('Book')
-@Controller('update-book')
+@Controller('book')
 export class UpdateBookController {
   constructor(private readonly updateBookService: UpdateBookService) {}
   @ApiOperation({ description: 'Actualiza um livro!' })

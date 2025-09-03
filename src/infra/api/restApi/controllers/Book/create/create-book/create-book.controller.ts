@@ -5,7 +5,7 @@ import { CreateBookService } from 'src/usecases/Book/create/create-book/create-b
 import { BookDTO } from 'src/usecases/dtos/bookInputs';
 
 @ApiTags('Book')
-@Controller('create-book')
+@Controller('book')
 export class CreateBookController {
   constructor(private readonly repo: CreateBookService) {}
 

@@ -1,3 +1,4 @@
 export enum messages {
-  bookAreadyExists = 'This book already exists!',
+  bookAreadyExists = 'Este livro já esta cadastrado!',
+  bookNotFound = 'Livro não encontrado!',
 }
