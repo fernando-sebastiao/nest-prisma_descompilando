@@ -14,29 +14,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Book {
-  id          String     @id @default(uuid())
+  id          String   @id @default(uuid())
   title       String
   description String
-  bar_code    String     @unique
+  bar_code    String   @unique
   price       Float
-  stock       Int        @default(0)
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  stock       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   // relação com itens vendidos
-  saleItems   SaleItem[]
+  saleItems SaleItem[]
 
   @@map("books")
 }
 
 model Customer {
-  id        String     @id @default(uuid())
+  id        String   @id @default(uuid())
   name      String
-  email     String     @unique
+  email     String   @unique
   phone     String?
-  createdAt DateTime   @default(now())
+  role      userRole
+  createdAt DateTime @default(now())
 
   // relação com vendas diretas
   saleItems SaleItem[]
@@ -45,15 +45,21 @@ model Customer {
 }
 
 model SaleItem {
-  id         String    @id @default(uuid())
+  id         String   @id @default(uuid())
   bookId     String
   customerId String
   quantity   Int
   price      Float
-  createdAt  DateTime  @default(now())
+  createdAt  DateTime @default(now())
 
   book     Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
   customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
 
   @@map("sale_items")
+}
+
+enum userRole {
+  ADMIN
+  PROFISSIONAL
+  CLIENT
 }
