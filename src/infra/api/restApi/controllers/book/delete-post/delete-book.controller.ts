@@ -7,7 +7,7 @@ import { DeleteBookService } from 'src/usecases/book/delete-book/delete-book.ser
 @Controller('book')
 export class DeleteBookController {
   constructor(private readonly deleteBookService: DeleteBookService) {}
-  @ApiOperation({ summary: 'Eliminar um book' })
+  @ApiOperation({ summary: 'Eliminar um livro' })
   @ApiResponse({ description: 'Book eliminado!', type: Book })
   @ApiResponse({ description: 'Book não encontrado!', status: 401 })
   @ApiResponse({ description: 'Erro interno do servidor!', status: 500 })

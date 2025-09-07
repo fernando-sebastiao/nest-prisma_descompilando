@@ -9,7 +9,7 @@ import { BookDTO } from 'src/usecases/dtos/bookInputs';
 export class CreateBookController {
   constructor(private readonly repo: CreateBookService) {}
 
-  @ApiOperation({ summary: 'Cria um novo Book' })
+  @ApiOperation({ summary: 'Cria um novo livro' })
   @ApiResponse({ status: 201, description: 'Book criado com sucesso' })
   @ApiResponse({
     status: 400,
