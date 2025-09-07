@@ -8,4 +8,5 @@ export abstract class IBookRepository {
   abstract updateBook(bookId: string, data: updateBookDTO): Promise<Book>;
   abstract findById(bookId: string): Promise<Book>;
   abstract findall(): Promise<Book[] | any>;
+  abstract deleteBook(id: string): Promise<Book>;
 }
