@@ -1,5 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Book } from 'src/domain/entities/book-entity';
 import { CreateBookService } from 'src/usecases/book/create/create-book/create-book.service';
 import { BookDTO } from 'src/usecases/dtos/bookInputs';
 
@@ -16,7 +17,7 @@ export class CreateBookController {
       'Dados invalidos, certifique que esteja a enviar os dados necessários!',
   })
   @Post()
-  async createBook(@Body() BookDTO: BookDTO): Promise<any> {
+  async createBook(@Body() BookDTO: BookDTO): Promise<Book> {
     return await this.repo.execute(BookDTO);
   }
 }

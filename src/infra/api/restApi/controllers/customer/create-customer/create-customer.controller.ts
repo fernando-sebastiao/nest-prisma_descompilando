@@ -20,7 +20,7 @@ export class CreateCustomerController {
     status: 401,
   })
   @Post()
-  async createCustomer(@Body() data: CustomerDTO): Promise<any> {
+  async createCustomer(@Body() data: CustomerDTO): Promise<CustomerEntity> {
     return await this.createCustomerService.execute(data);
   }
 }
