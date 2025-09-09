@@ -22,4 +22,11 @@ export class PrismaCustomerRepository implements ICustomerRepository {
     const result = await this.prisma.customer.create({ data: customer });
     return result;
   }
+  async findExisting(email: string, phone: string): Promise<any> {
+    await this.prisma.customer.findFirst({
+      where: {
+        OR: [{ email }, { phone }],
+      },
+    });
+  }
 }

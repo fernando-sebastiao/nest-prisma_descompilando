@@ -4,4 +4,5 @@ import { CustomerEntity } from '../entities/customer-entity';
 export abstract class ICustomerRepository {
   abstract findById(customerId: string): Promise<CustomerEntity>;
   abstract create(data: CustomerDTO): Promise<CustomerEntity>;
+  abstract findExisting(email: string, phone: string): Promise<any>;
 }

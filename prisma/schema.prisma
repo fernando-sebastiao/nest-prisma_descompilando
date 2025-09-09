@@ -33,7 +33,7 @@ model Customer {
   id        String   @id @default(uuid())
   name      String
   email     String   @unique
-  phone     String?
+  phone     String
   role      userRole
   createdAt DateTime @default(now())
 
