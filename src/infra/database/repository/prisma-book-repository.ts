@@ -3,7 +3,7 @@ import { Book } from 'src/domain/entities/book-entity';
 import { IBookRepository } from 'src/domain/repository/IBookRepository';
 import { BookDTO } from 'src/usecases/dtos/bookInputs';
 import { updateBookDTO } from 'src/usecases/dtos/update-book-input';
-import { PrismaService } from '../prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class PrismaBookRepository implements IBookRepository {

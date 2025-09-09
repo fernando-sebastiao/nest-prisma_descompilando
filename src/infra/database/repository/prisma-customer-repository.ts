@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CustomerEntity } from 'src/domain/entities/customer-entity';
 import { ICustomerRepository } from 'src/domain/repository/ICustomerRepository';
 import { CustomerDTO } from 'src/usecases/dtos/custumerInputs';
-import { PrismaService } from '../prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class PrismaCustomerRepository implements ICustomerRepository {
