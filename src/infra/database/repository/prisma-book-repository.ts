@@ -26,7 +26,7 @@ export class PrismaBookRepository implements IBookRepository {
     return await this.prisma.book.update({ where: { id: bookId }, data: data });
   }
   async findById(bookId: string): Promise<any> {
-    const result = await this.prisma.book.findUnique({
+    await this.prisma.book.findUnique({
       where: { id: bookId },
       select: {
         id: true,
@@ -39,12 +39,6 @@ export class PrismaBookRepository implements IBookRepository {
         title: true,
       },
     });
-
-    if (!result) {
-      throw new Error(`Livro com o id ${bookId} não encontrado`);
-    }
-
-    return result;
   }
   async findall(): Promise<Book[] | any> {
     return this.prisma.book.findMany({
