@@ -13,4 +13,5 @@ export abstract class ICustomerRepository {
     data: updateCustomerDTO,
   ): Promise<CustomerEntity>;
   abstract findall(): Promise<CustomerEntity[]>;
+  abstract deleteCustumer(id: string): Promise<CustomerEntity>;
 }
