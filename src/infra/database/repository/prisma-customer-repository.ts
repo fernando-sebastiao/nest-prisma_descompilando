@@ -1,22 +1,19 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CustomerEntity } from 'src/domain/entities/customer-entity';
 import { ICustomerRepository } from 'src/domain/repository/ICustomerRepository';
-import { CustomerDTO } from 'src/usecases/dtos/custumerInputs';
+import {
+  CustomerDTO,
+  updateCustomerDTO,
+} from 'src/usecases/dtos/custumerInputs';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class PrismaCustomerRepository implements ICustomerRepository {
   constructor(private prisma: PrismaService) {}
-  async findById(customerId: string): Promise<CustomerEntity> {
-    const data = await this.prisma.customer.findUnique({
+  async findById(customerId: string): Promise<any> {
+    return await this.prisma.customer.findUnique({
       where: { id: customerId },
     });
-    if (!data) {
-      throw new NotFoundException(
-        `Cliente com o id ${customerId} não encontrado!`,
-      );
-    }
-    return data;
   }
   async create(customer: CustomerDTO): Promise<CustomerEntity> {
     const result = await this.prisma.customer.create({ data: customer });
@@ -26,6 +23,19 @@ export class PrismaCustomerRepository implements ICustomerRepository {
     await this.prisma.customer.findFirst({
       where: {
         OR: [{ email }, { phone }],
+      },
+    });
+  }
+  async update(
+    customerId: string,
+    data: updateCustomerDTO,
+  ): Promise<CustomerEntity> {
+    return await this.prisma.customer.update({
+      where: { id: customerId },
+      data: {
+        name: data?.name,
+        email: data?.email,
+        phone: data?.phone,
       },
     });
   }

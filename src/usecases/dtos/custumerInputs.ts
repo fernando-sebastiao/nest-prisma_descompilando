@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEnum, IsString } from 'class-validator';
+import { IsEnum, IsOptional, IsString } from 'class-validator';
 import { userRole } from 'generated/prisma';
 
 export class CustomerDTO {
@@ -28,4 +28,27 @@ export class CustomerDTO {
   })
   @IsEnum(userRole)
   role: userRole;
+}
+
+export class updateCustomerDTO {
+  @ApiPropertyOptional({
+    description: 'Escreva o seu nome',
+    example: 'Fernando Sebastião',
+  })
+  @IsOptional()
+  @IsString()
+  name?: string;
+
+  @ApiPropertyOptional({ example: '929516315' })
+  @IsString()
+  @IsOptional()
+  phone?: string;
+
+  @ApiPropertyOptional({
+    description: 'Conta gmail',
+    example: 'fernandosebastiao888@gmail.com',
+  })
+  @IsOptional()
+  @IsString()
+  email?: string;
 }
