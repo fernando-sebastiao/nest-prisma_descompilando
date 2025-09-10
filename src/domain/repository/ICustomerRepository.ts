@@ -12,4 +12,5 @@ export abstract class ICustomerRepository {
     customerId: string,
     data: updateCustomerDTO,
   ): Promise<CustomerEntity>;
+  abstract findall(): Promise<CustomerEntity[]>;
 }

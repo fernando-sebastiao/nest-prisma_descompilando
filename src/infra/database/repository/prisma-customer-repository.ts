@@ -39,4 +39,7 @@ export class PrismaCustomerRepository implements ICustomerRepository {
       },
     });
   }
+  async findall(): Promise<CustomerEntity[]> {
+    return await this.prisma.customer.findMany();
+  }
 }
