@@ -1,14 +1,15 @@
 import { Controller, Get } from '@nestjs/common';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CustomerEntity } from 'src/domain/entities/customer-entity';
 import { FindAllCustumerService } from 'src/usecases/customer/find-all/find-all.custumer.service';
 
-@ApiTags('Custumer')
-@Controller('custumer')
+@ApiTags('Customer')
+@Controller('customer')
 export class FindAllCustumerController {
   constructor(
     private readonly findAllCustumerService: FindAllCustumerService,
   ) {}
+  @ApiOperation({ summary: 'Lista todos os clientes' })
   @ApiResponse({
     description: 'Lista dos clientes!',
     status: 200,

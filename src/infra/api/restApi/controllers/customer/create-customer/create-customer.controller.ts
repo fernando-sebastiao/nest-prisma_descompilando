@@ -5,11 +5,11 @@ import { CreateCustomerService } from 'src/usecases/customer/create-customer/cre
 import { CustomerDTO } from 'src/usecases/dtos/custumerInputs';
 
 @ApiTags('Customer')
-@Controller('custumer')
+@Controller('customer')
 export class CreateCustomerController {
   constructor(private readonly createCustomerService: CreateCustomerService) {}
 
-  @ApiOperation({ description: 'criar um cliente(customer)' })
+  @ApiOperation({ summary: 'Criar um cliente(customer)' })
   @ApiResponse({
     description: 'cliente(customer) criado com sucesso',
     status: 201,
