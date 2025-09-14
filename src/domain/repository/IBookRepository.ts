@@ -6,7 +6,7 @@ export abstract class IBookRepository {
   abstract create(book: BookDTO): Promise<Book>;
   abstract findExisting(title: string, bar_code: string): Promise<Book>;
   abstract updateBook(bookId: string, data: updateBookDTO): Promise<Book>;
-  abstract findById(bookId: string): Promise<any>;
+  abstract findById(bookId: string): Promise<Book | any>;
   abstract findall(): Promise<Book[] | any>;
   abstract deleteBook(id: string): Promise<Book>;
 }

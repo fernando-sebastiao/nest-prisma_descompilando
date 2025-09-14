@@ -10,6 +10,6 @@ export class FindOneBookService {
     if (!existingBook) {
       throw new NotFoundException(messages.bookNotFound);
     }
-    return this.repo.findById(bookId);
+    return existingBook;
   }
 }

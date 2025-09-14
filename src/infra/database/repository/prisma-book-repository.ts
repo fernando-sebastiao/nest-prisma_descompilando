@@ -25,8 +25,8 @@ export class PrismaBookRepository implements IBookRepository {
   async updateBook(bookId: string, data: updateBookDTO): Promise<Book> {
     return await this.prisma.book.update({ where: { id: bookId }, data: data });
   }
-  async findById(bookId: string): Promise<any> {
-    await this.prisma.book.findUnique({
+  async findById(bookId: string): Promise<Book | any> {
+    return this.prisma.book.findUnique({
       where: { id: bookId },
       select: {
         id: true,
