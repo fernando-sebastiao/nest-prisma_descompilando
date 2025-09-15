@@ -32,4 +32,7 @@ export class PrismaSaleItemRepository implements IsaleItemRepositoy {
       },
     });
   }
+  delete(saleId: string): Promise<saleItemEntity> {
+    return this.prisma.saleItem.delete({ where: { id: saleId } });
+  }
 }

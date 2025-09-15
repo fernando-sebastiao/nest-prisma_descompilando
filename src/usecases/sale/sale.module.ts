@@ -12,6 +12,7 @@ import { PrismaSaleItemRepository } from 'src/infra/database/repository/prisma-s
 import { CreateSaleService } from './create-sale/create-sale.service';
 import { FindAllSaleService } from './find-all/find-all.sale.service';
 import { FindOneSaleService } from './find-one/find-one.sale.service';
+import { DeleteSaleService } from './delete-sale/delete-sale.service';
 
 @Module({
   providers: [
@@ -22,6 +23,7 @@ import { FindOneSaleService } from './find-one/find-one.sale.service';
     { provide: IBookRepository, useClass: PrismaBookRepository },
     FindOneSaleService,
     FindAllSaleService,
+    DeleteSaleService,
   ],
   controllers: [
     CreateSaleController,
