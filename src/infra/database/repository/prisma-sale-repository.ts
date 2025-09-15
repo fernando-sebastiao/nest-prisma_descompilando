@@ -13,4 +13,23 @@ export class PrismaSaleItemRepository implements IsaleItemRepositoy {
   async findOne(saleId: string): Promise<saleItemEntity | null> {
     return await this.prisma.saleItem.findUnique({ where: { id: saleId } });
   }
+  findall(): Promise<saleItemEntity[] | null> {
+    return this.prisma.saleItem.findMany({
+      include: {
+        customer: {
+          select: {
+            name: true,
+            email: true,
+            phone: true,
+          },
+        },
+        book: {
+          select: {
+            price: true,
+            title: true,
+          },
+        },
+      },
+    });
+  }
 }
