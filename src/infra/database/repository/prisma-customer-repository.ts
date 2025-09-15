@@ -20,7 +20,7 @@ export class PrismaCustomerRepository implements ICustomerRepository {
     return result;
   }
   async findExisting(email: string, phone: string): Promise<any> {
-    await this.prisma.customer.findFirst({
+    return await this.prisma.customer.findFirst({
       where: {
         OR: [{ email }, { phone }],
       },
