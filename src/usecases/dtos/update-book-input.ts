@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsInt, IsNumber, IsOptional, IsString, Min } from 'class-validator';
 
 export class updateBookDTO {
@@ -10,7 +10,7 @@ export class updateBookDTO {
   @IsString({ message: 'O título deve ser um texto' })
   title?: string;
 
-  @ApiProperty({
+  @ApiPropertyOptional({
     example: 'Um guia sobre boas práticas de arquitetura de software',
     description: 'Descrição detalhada do livro',
   })
