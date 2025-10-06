@@ -33,10 +33,11 @@ model Customer {
   id        String     @id @default(uuid())
   name      String
   email     String     @unique
-  phone     String
+  phone     String     @unique
   role      userRole
   createdAt DateTime   @default(now())
   saleItems SaleItem[]
+
 
   @@map("customers")
 }
@@ -53,6 +54,7 @@ model SaleItem {
   book     Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
   customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
 
+  @@index([bookId, customerId])
   @@map("sale_items")
 }
 
