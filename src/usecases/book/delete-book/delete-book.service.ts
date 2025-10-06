@@ -7,7 +7,7 @@ export class DeleteBookService {
   constructor(private readonly repo: IBookRepository) {}
   async execute(bookId: string) {
     const findExisting = await this.repo.findById(bookId);
-    if (!findExisting) throw new NotFoundException(messages.bookAreadyExists);
+    if (!findExisting) throw new NotFoundException(messages.bookNotFound);
     return this.repo.deleteBook(bookId);
   }
 }
