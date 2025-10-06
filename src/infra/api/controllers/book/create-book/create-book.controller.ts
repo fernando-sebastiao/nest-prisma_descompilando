@@ -16,6 +16,7 @@ export class CreateBookController {
     description:
       'Dados invalidos, certifique que esteja a enviar os dados necessários!',
   })
+  @ApiResponse({ status: 500, description: 'Erro no servidor!' })
   @Post()
   async createBook(@Body() BookDTO: BookDTO): Promise<Book> {
     return await this.repo.execute(BookDTO);

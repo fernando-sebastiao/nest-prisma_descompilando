@@ -19,6 +19,15 @@ export class CreateCustomerController {
     description: 'cliente(customer) já existe! Verifique os dados',
     status: 401,
   })
+  @ApiResponse({
+    status: 400,
+    description:
+      'Dados invalidos, certifique que esteja a enviar os dados necessários!',
+  })
+  @ApiResponse({
+    status: 500,
+    description: 'Erro no servidor!',
+  })
   @Post()
   async createCustomer(@Body() data: CustomerDTO): Promise<CustomerEntity> {
     return await this.createCustomerService.execute(data);

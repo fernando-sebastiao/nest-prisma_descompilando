@@ -19,6 +19,15 @@ export class UpdateBookController {
     description: 'Livro não encontrado!',
     type: Book,
   })
+  @ApiResponse({
+    status: 400,
+    description:
+      'Dados invalidos, certifique que esteja a enviar os dados necessários!',
+  })
+  @ApiResponse({
+    status: 500,
+    description: 'Erro no servidor!',
+  })
   @Put(':bookId')
   async updateBook(
     @Body() data: updateBookDTO,

@@ -20,6 +20,10 @@ export class UpdateCustomerController {
     description: 'Cliente não encontrado!',
     type: CustomerEntity,
   })
+  @ApiResponse({
+    status: 500,
+    description: 'Erro no servidor!',
+  })
   @Put(':customerId')
   async updateCustomer(
     @Body() data: updateCustomerDTO,

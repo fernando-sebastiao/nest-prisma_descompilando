@@ -14,6 +14,11 @@ export class FindAllBookController {
     type: Book,
   })
   @ApiResponse({
+    status: 400,
+    description:
+      'Dados invalidos, certifique que esteja a enviar os dados necessários!',
+  })
+  @ApiResponse({
     status: 500,
     description: 'Erro do servidor!',
   })
