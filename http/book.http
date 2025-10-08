@@ -1,0 +1,27 @@
+@PORT=4000
+
+### Listar todos os livros
+GET http://localhost:{{PORT}}/book
+
+### Criar um novo livro
+POST http://localhost:{{PORT}}/book
+Content-Type: application/json
+
+{
+  "title": "Testando Rest Client",
+  "description": "Um guia sobre boas práticas de arquitetura de software",
+  "bar_code": "1234567890187",
+  "price": 79.9,
+  "stock": 10
+}
+
+### Atualizar um livro
+PUT http://localhost:4000/book/5c3b8754-8f94-4f49-bd73-3f9eb41e0dc1
+Content-Type: application/json
+
+{
+  "title": "DDD - Domain Driven Design",
+  "description": "Um guia sobre boas práticas de arquitetura de software",
+  "price": 79.9,
+  "stock": 10
+}
