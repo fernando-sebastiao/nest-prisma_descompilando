@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  book-db:
+    image: postgres:latest
+    container_name: fernando_book_postgres
+    restart: always
+    ports:
+      - '5438:5432'
+    environment:
+      POSTGRES_USER: 'fernando'
+      POSTGRES_PASSWORD: 'programador'
+      POSTGRES_DB: 'books_db'
+    volumes:
+      - book-db-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  book-db-data:
