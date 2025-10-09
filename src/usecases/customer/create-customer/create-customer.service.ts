@@ -11,7 +11,7 @@ export class CreateCustomerService {
       data.email,
       data.phone,
     );
-    if (!ExistingCustomer)
+    if (ExistingCustomer)
       throw new ForbiddenException(messages.custumerAlreadyExists);
 
     return this.repo.create(data);
